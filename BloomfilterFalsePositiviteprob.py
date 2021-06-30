@@ -33,16 +33,12 @@ class BloomFilter:
         prob = (1.0 - ((1.0 - 1.0/self.m)**(self.k*self.n))) ** self.k
         return "Might be in Bloom Filter with false positive probability "+str(prob)
 
-bloom=BloomFilter(50,1)
-bloom.insert("Hello")
-#print(bloom.data)
-bloom.insert("cat")
-bloom.insert("mat")
-#bloom.insert('lo')
-print(bloom.data)
-b=bloom.search("cat")
+bloom=BloomFilter(50,2)
+usernames=['anand','shubham','Ajay','shivaji','Shreenath','chaitanya','Nitin']
+for name in usernames:
+    bloom.insert(name)
+    
+username=input('Enter Username:')
+b=bloom.search(username)
 print(b)
-
-
-
 
